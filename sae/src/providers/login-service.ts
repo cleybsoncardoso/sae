@@ -22,6 +22,8 @@ export class LoginService {
   private extractLoginData(res: Response) {
     let retorno = { erro: false, mensagem: '', usuario: {} };
     let data = res.json();
+    console.log(JSON.stringify(data));
+
     if (data) {
       retorno.mensagem = data.mensagem;
       if (data == 'sucesso') {
@@ -34,6 +36,7 @@ export class LoginService {
   }
 
   private tratarError(error: any) {
+    console.log(JSON.stringify(error));
     let retorno = { erro: true, mensagem: JSON.stringify(error) };
     return retorno;
   }
