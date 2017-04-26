@@ -13,7 +13,10 @@ if (isset($postdata)) {
     $senha = $request->senha;
 
     //cria objeto usado para enviar resposta para usuario
-    $reposta = new stdObject();
+    $reposta = (object) [
+        'mensagem' => '',
+        'usuario' => 42,
+    ];
 
 
     //pesquisa pelo coren no bando de dados
@@ -36,7 +39,7 @@ if (isset($postdata)) {
         }
     //se o coren nao existir, retorna mensagem dizendo o que estava errado
     } else {
-        $reposta->mensagem = "login";
+        $reposta->mensagem = "coren";
         $reposta->usuario = "";
         echo json_encode($reposta);
     }

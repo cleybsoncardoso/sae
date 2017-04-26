@@ -24,6 +24,7 @@ export class StorageService {
       .then(
       data => data,
       error => {
+        alert('Erro ao carregar dados');
         return new Usuario();
       }).catch(() => new Usuario());
 
