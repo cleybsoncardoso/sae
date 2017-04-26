@@ -8,7 +8,7 @@ import { StorageService } from '../../providers/storage-service';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
+// @IonicPage()
 @Component({
   selector: 'page-pacientes',
   templateUrl: 'pacientes.html',
@@ -16,7 +16,7 @@ import { StorageService } from '../../providers/storage-service';
 export class Pacientes {
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     private menu: MenuController,
     private storageService: StorageService
@@ -24,11 +24,4 @@ export class Pacientes {
 
       this.storageService.get().then(res=>console.log(res));
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Pacientes');
-  }
-
-  
-
 }

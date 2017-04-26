@@ -4,20 +4,13 @@ import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
 import { Usuario } from '../model/usuario';
 
-/*
-  Generated class for the StorageService provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class StorageService {
 
   constructor(public storage: Storage) {
-    console.log('Hello StorageService Provider');
   }
 
-  public set(user: Usuario) {
+  public set(user: any) {
 
     this.storage.set('usuarioAtual', user)
       .then(() => {},
@@ -25,7 +18,7 @@ export class StorageService {
 
   }
 
-  public get(): Promise<Usuario> {
+  public get(): Promise<any> {
 
     return this.storage.get('usuarioAtual')
       .then(
