@@ -6,6 +6,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { Login } from '../pages/login/login';
 import { LoginService } from '../providers/login-service';
+import { StorageService } from '../providers/storage-service';
+
+import { Pacientes } from '../pages/pacientes/pacientes';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -14,7 +17,8 @@ import { HomePage } from '../pages/home/home';
   declarations: [
     MyApp,
     Login,
-    HomePage
+    HomePage,
+    Pacientes
   ],
   imports: [
     BrowserModule,
@@ -24,12 +28,14 @@ import { HomePage } from '../pages/home/home';
   entryComponents: [
     MyApp,
     Login,
-    HomePage
+    HomePage,
+    Pacientes
   ],
   providers: [
     StatusBar,
     SplashScreen,
     LoginService,
+    StorageService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
