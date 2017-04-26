@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { LoginService } from '../../providers/login-service';
+import { Usuario } from '../../model/usuario';
 
 /**
  * Generated class for the Login page.
@@ -14,11 +16,33 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class Login {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private usuario: Usuario = new Usuario();
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private loginService: LoginService,
+    private menu : MenuController
+    ) {
+      this.menu.enable(false);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Login');
+  entrar(){
+    this.loginService.logar(this.usuario).then(resposta=>{
+      if(!resposta.erro){
+        if(resposta.mensagem == "sucesso"){
+
+        }else if(resposta.mensagem == "senha"){
+
+        }else if(resposta.mensagem == "coren"){
+
+        }
+      } 
+    });
+  }
+
+  esqueci(){
+
   }
 
 }
